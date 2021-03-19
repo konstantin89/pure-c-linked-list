@@ -29,21 +29,26 @@ struct list_head {
     struct list_head *next, *prev;
 };
 
+static inline void INIT_LIST_HEAD(struct list_head *list)
+{
+    list->next = list;
+    list->prev = list;
+}
 
 static inline void __list_add(
-    struct list_head *new,
+    struct list_head *new_node,
     struct list_head *prev,
     struct list_head *next)
 {
-    next->prev = new;
-    new->next = next;
-    new->prev = prev;
-    prev->next = new;
+    next->prev = new_node;
+    new_node->next = next;
+    new_node->prev = prev;
+    prev->next = new_node;
 }
 
-static inline void  list_add(struct list_head *new, struct list_head *head)
+static inline void  list_add(struct list_head *new_node, struct list_head *head)
 {
-    __list_add(new, head, head->next);
+    __list_add(new_node, head, head->next);
 
 }
 

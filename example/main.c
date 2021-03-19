@@ -1,42 +1,35 @@
 #include "linked_list.h"
 
 
-// https://medium.com/@414apache/kernel-data-structures-linkedlist-b13e4f8de4bf
-
-
-// https://www.tutorialspoint.com/c_standard_library/c_macro_offsetof.htm
-
-
-
-
-#include <stddef.h>
-#include <stdio.h>
-
-
-
-
-
 #include <stdio.h>
 #include <stddef.h>
 
 
 struct mystruct {
     int data;
-    struct list_head *mylist;
+    struct list_head mylist;
 };
 
 
 int main(void)
 {
-
-    struct mystruct first = {
-     .data = 10,
-     .mylist = LIST_HEAD_INIT(first.mylist)
-    };
-
     LIST_HEAD(mylinkedlist);
 
+
+    struct mystruct first;
+
+    first.data = 10;
+    INIT_LIST_HEAD(&first.mylist);
+
+
+    struct mystruct second;
+
+    second.data = 20;
+    INIT_LIST_HEAD(&second.mylist);
+
+
     list_add(&first.mylist, &mylinkedlist);
+    list_add(&second.mylist, &mylinkedlist);
 
 
     struct list_head *position = NULL;
