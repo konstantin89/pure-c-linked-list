@@ -3,6 +3,11 @@
 
 #include <stdlib.h>
 
+struct list_head 
+{
+    struct list_head *next, *prev;
+};
+
 #define LIST_HEAD_INIT(name) { &(name), &(name) } 
 
 #define LIST_HEAD(name) \
@@ -25,9 +30,6 @@
               pos = list_entry(pos->member.next, typeof(*pos), member))
 
 
-struct list_head {
-    struct list_head *next, *prev;
-};
 
 static inline void INIT_LIST_HEAD(struct list_head *list)
 {
@@ -46,17 +48,14 @@ static inline void __list_add(
     prev->next = new_node;
 }
 
-static inline void  list_add(struct list_head *new_node, struct list_head *head)
+static inline void  list_add_front(struct list_head *new_node, struct list_head *head)
 {
     __list_add(new_node, head, head->next);
-
 }
 
-
-
-
-
-
-
+static inline void list_add_tail(struct list_head *new_node, struct list_head *head)
+{
+	__list_add(new_node, head->prev, head);
+}
 
 #endif

@@ -17,19 +17,16 @@ int main(void)
 
 
     struct mystruct first;
+    struct mystruct second;
 
     first.data = 10;
     INIT_LIST_HEAD(&first.mylist);
 
-
-    struct mystruct second;
-
     second.data = 20;
     INIT_LIST_HEAD(&second.mylist);
 
-
-    list_add(&first.mylist, &mylinkedlist);
-    list_add(&second.mylist, &mylinkedlist);
+    list_add_front(&first.mylist, &mylinkedlist);
+    list_add_front(&second.mylist, &mylinkedlist);
 
 
     struct list_head *position = NULL;
