@@ -38,15 +38,13 @@ int main(void)
     list_for_each(position, &mylinkedlist)
     {
         datastructureptr = list_entry(position, struct mystruct, mylist);
-        printf("data  =  %d\n", datastructureptr->data);
+        printf("list_for_each: data  =  %d\n", datastructureptr->data);
     }
 
-
-
-    //list_for_each_entry(datastructureptr, &mylinkedlist, mylist)
-    //{
-    //    printf("data  =  %d\n", datastructureptr->data);
-    //}
+    list_for_each_entry(datastructureptr, &mylinkedlist, mylist)
+    {
+        printf("list_for_each_entry: data  =  %d\n", datastructureptr->data);
+    }
 
     return 0;
 }
