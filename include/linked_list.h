@@ -13,7 +13,6 @@ struct list_head
 #define LIST_HEAD(name) \
          struct list_head name = LIST_HEAD_INIT(name)
 
-
 #define container_of(ptr, type, member) ({ \
          const typeof(((type *)0)->member) *__mptr = (ptr);    \
          (type *)((char *)__mptr - offsetof(type,member)); })
@@ -28,7 +27,6 @@ struct list_head
          for (pos = list_entry((head)->next, typeof(*pos), member);      \
               &pos->member != (head);                                     \
               pos = list_entry(pos->member.next, typeof(*pos), member))
-
 
 
 static inline void INIT_LIST_HEAD(struct list_head *list)

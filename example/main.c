@@ -1,20 +1,16 @@
 #include "linked_list.h"
 
-
 #include <stdio.h>
 #include <stddef.h>
-
 
 struct mystruct {
     int data;
     struct list_head mylist;
 };
 
-
 int main(void)
 {
     LIST_HEAD(mylinkedlist);
-
 
     struct mystruct first;
     struct mystruct second;
@@ -27,7 +23,6 @@ int main(void)
 
     list_add_front(&first.mylist, &mylinkedlist);
     list_add_front(&second.mylist, &mylinkedlist);
-
 
     struct list_head *position = NULL;
     struct mystruct  *datastructureptr = NULL;

@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.1.2)
 
-cmake_minimum_required(VERSION 3.1.2)
-
-
 set(TESTS_BINARY_NAME tests)
 
 set(TESTS_SOURCES main.cpp)

@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.1.2)
 
-cmake_minimum_required(VERSION 3.1.2)
-
 
 set(EXAMPLE_BINARY_NAME example)
 
